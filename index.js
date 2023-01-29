@@ -11,7 +11,7 @@ import dalleRoutes from "./routes/dalleRoutes.js";
 dotenv.config();
 
 const app = express();
-
+const dir = new URL(import.meta.url).pathname;
 app.use(cors());
 app.use(express.json({ limit: "50mb" }));
 app.use(bodyParser.json());
@@ -22,15 +22,12 @@ app.use("/api/v1/posts", postRoutes);
 app.use("/api/v1/dalle", dalleRoutes);
 
 // serving the frontend
-app.use(express.static(path.join(__dirname, "./client/dist")));
+app.use(express.static(path.join(dir, "./client/dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "./client/dist/index.html"),
-    function (err) {
-      res.status(500).send(err);
-    }
-  );
+  res.sendFile(path.join(dir, "./client/dist/index.html"), function (err) {
+    res.status(500).send(err);
+  });
 });
 
 let PORT = process.env.PORT || 5000;
