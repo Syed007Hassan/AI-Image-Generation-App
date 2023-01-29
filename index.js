@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import connectDb from "./connect.js";
 import bodyParser from "body-parser";
+import path from "path";
 
 import postRoutes from "./routes/postRoutes.js";
 import dalleRoutes from "./routes/dalleRoutes.js";
@@ -19,6 +20,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //middleware
 app.use("/api/v1/posts", postRoutes);
 app.use("/api/v1/dalle", dalleRoutes);
+
+// serving the frontend
+app.use(express.static(path.join(__dirname, "./client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "./client/dist/index.html"),
+    function (err) {
+      res.status(500).send(err);
+    }
+  );
+});
 
 let PORT = process.env.PORT || 5000;
 
