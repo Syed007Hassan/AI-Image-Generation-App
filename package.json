@@ -9,7 +9,8 @@
     "start": "node index",
     "install-server": "npm install",
     "install-client": "cd client && npm install",
-    "in": "npm run install-client && npm run install-server"
+    "in": "npm run install-client && npm run install-server",
+    "build": "cd client && npm run build"
   },
   "keywords": [],
   "author": "",
