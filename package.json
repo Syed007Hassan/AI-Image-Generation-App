@@ -6,7 +6,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index"
+    "start": "node index",
+    "install-server": "npm install",
+    "install-client": "cd client && npm install",
+    "in": "npm run install-client && npm run install-server"
   },
   "keywords": [],
   "author": "",
