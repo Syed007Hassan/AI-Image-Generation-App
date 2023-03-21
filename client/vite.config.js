@@ -9,6 +9,7 @@ export default defineConfig({
     manifest: false,
     rollupOptions: {
       // overwrite default .html entry
+      external: ["react"],
       input: "src/main.jsx",
     },
   },
