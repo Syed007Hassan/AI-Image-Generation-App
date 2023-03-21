@@ -9,8 +9,10 @@
     "start": "node index",
     "install-server": "npm install",
     "install-client": "cd client && npm install",
+    "dev": "npm run start --prefix client",
     "in": "npm run install-server && npm run install-client",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "deploy": "npm run start & npm run dev"
   },
   "keywords": [],
   "author": "",
