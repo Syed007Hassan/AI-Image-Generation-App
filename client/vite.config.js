@@ -8,7 +8,7 @@ export default defineConfig({
     // generate manifest.json in outDir
     manifest: false,
     rollupOptions: {
-      external: ["react"],
+      external: ["react", "react-dom/client"],
       input: "src/main.jsx",
     },
   },
