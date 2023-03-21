@@ -8,7 +8,12 @@ export default defineConfig({
     // generate manifest.json in outDir
     manifest: false,
     rollupOptions: {
-      external: ["react", "react-dom/client", "react/jsx-runtime"],
+      external: [
+        "react",
+        "react-dom/client",
+        "react/jsx-runtime",
+        "react-router-dom",
+      ],
       input: "src/main.jsx",
     },
   },
