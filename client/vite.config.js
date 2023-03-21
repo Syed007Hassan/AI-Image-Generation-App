@@ -8,7 +8,6 @@ export default defineConfig({
     // generate manifest.json in outDir
     manifest: false,
     rollupOptions: {
-      // overwrite default .html entry
       external: ["react"],
       input: "src/main.jsx",
     },
