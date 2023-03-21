@@ -3,13 +3,12 @@ import mongoose from "mongoose";
 
 mongoose.set("strictQuery", false);
 
-//creating a Places db after / localhost
-const connectDb = async function main() {
-  await mongoose.connect(
-    "mongodb+srv://admin-hassan:" +
-      process.env.MONGOATLASPASWORD +
-      "@cluster0.yipmq.mongodb.net/dalle"
-  );
+//creating a db connection
+const connectDb = async () => {
+  await mongoose.connect(process.env.MONGOURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
   console.log("MongoDB Server is up and running");
 };
 
