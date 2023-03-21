@@ -13,6 +13,7 @@ export default defineConfig({
         "react-dom/client",
         "react/jsx-runtime",
         "react-router-dom",
+        "file-saver",
       ],
       input: "src/main.jsx",
     },
